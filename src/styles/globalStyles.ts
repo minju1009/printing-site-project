@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import { theme } from 'styles';
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -66,10 +66,12 @@ const GlobalStyle = createGlobalStyle`
     body {
         width: 100vw;
         height: 100vh;
-        background: ${theme.BLACK};
+        background-color: #fff;
         padding: 0;
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif;
+        color: #191919;
+        font-size: 12px;
     };
 
     #root {

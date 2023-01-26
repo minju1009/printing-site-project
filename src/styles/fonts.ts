@@ -6,9 +6,10 @@ export const font = (size: number, weight: number, lineHeight: number = 0) => cs
   line-height: ${lineHeight || size * 1.5}px;
 `;
 
-// export const fontSize = {
-//   large: '28px',
-//   medium: '18px',
-//   regular: '16px',
-//   small: '14px',
-// };
+export const fontSize = {
+  extraLarge: '20px',
+  large: '18px',
+  medium: '15px',
+  regular: '13px',
+  small: '11px',
+};
