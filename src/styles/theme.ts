@@ -1,5 +1,6 @@
 const theme = {
-  BLACK: '#0e0e0e',
+  BLUE_DARK: '#2c83e9',
+  BLUE_LIGHT: '#469CFF',
 };
 
 export default theme;
