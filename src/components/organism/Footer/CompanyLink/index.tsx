@@ -25,8 +25,8 @@ export default function CompanyLink() {
         ))}
       </CompanyLinks>
       <SNSLinks>
-        {COMPANY_SNS_LIST.map(({ name, url, imgSrc }) => (
-          <SNSLink onClick={() => handleLinkClick(url)}>
+        {COMPANY_SNS_LIST.map(({ name, url, imgSrc }, idx) => (
+          <SNSLink key={`SNSLink-${idx}`} onClick={() => handleLinkClick(url)}>
             <img alt={name} src={imgSrc} />
           </SNSLink>
         ))}

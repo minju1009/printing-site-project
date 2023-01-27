@@ -3,6 +3,7 @@ const theme = {
   BLUE_LIGHT: '#469CFF',
   GREY_LIGHT: '#F9FAFC',
   GREY_MEDIUM: '#EEEEEE',
+  GREY_MEDIUM_X2: '#CCCCCC',
   GREY_DARK: '#999999',
   BLACK: '#191919',
 };
