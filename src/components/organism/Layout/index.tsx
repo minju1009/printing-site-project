@@ -24,7 +24,6 @@ const Container = styled.div`
 `;
 
 const Body = styled.main`
-  width: 1140px;
-  height: 960px;
-  background-color: #5e5e43;
+  /* width: 1140px;
+  height: 960px; */
 `;
