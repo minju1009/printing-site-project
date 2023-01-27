@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 import Logo from 'components/atoms/Logo';
@@ -13,14 +14,13 @@ export default function Nav() {
         <Logo width={107} />
         <Navigation>
           {NAV_MENU_LIST.map(({ id, name, path, isNew }) => (
-            <NavMenu key={id} isNew={isNew} path={path}>
+            <NavMenu key={id} isNew={isNew} menuId={id} path={path}>
               {name}
             </NavMenu>
           ))}
         </Navigation>
         <CartWrap>
           <CartIcon />
-
           <CartText>장바구니</CartText>
         </CartWrap>
       </Wrapper>
@@ -36,7 +36,6 @@ const Wrapper = styled.div`
   ${flex('space-between', 'center')}
   width: 1140px;
   margin: 0 auto;
-  padding: 22px 0;
 `;
 
 const Navigation = styled.ul`

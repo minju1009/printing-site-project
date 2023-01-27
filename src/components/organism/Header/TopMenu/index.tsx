@@ -75,6 +75,7 @@ const Menu = styled.li`
   display: inline-block;
   margin: 0 5px;
   color: black;
+  cursor: pointer;
 `;
 
 const Dot = styled(Menu)`
