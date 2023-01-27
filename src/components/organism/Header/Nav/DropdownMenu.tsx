@@ -38,7 +38,7 @@ export default function DropdownMenu({ dropdownMenuId }: IDropdownMenuProps) {
           <div key={`dropdown-label-${idx}`}>
             <Label category={category}>{category}</Label>
             {filteredData(category).map(({ name, isNew, attr }, index) => (
-              <Item key={`dropdown-item-${index}`} isNew={isNew}>
+              <Item key={`dropdown-item-${index}`} category={category} isNew={isNew}>
                 <StyledLink to={attr.toLowerCase().replaceAll('_', '-')}>{name}</StyledLink>
               </Item>
             ))}
@@ -47,6 +47,11 @@ export default function DropdownMenu({ dropdownMenuId }: IDropdownMenuProps) {
       </DropdownWrap>
     </DropdownContainer>
   );
+}
+
+interface IDropDownStyle {
+  isNew?: boolean;
+  category: string;
 }
 
 const DropdownContainer = styled.div`
@@ -81,7 +86,7 @@ const DropdownWrap = styled.dl`
   padding: 6px 15px;
 `;
 
-const Label = styled.dt<{ category: string }>`
+const Label = styled.dt<IDropDownStyle>`
   padding: 8px 0;
   font-weight: bold;
 
@@ -92,20 +97,24 @@ const Label = styled.dt<{ category: string }>`
     `}
 `;
 
-const Item = styled.dd<{ isNew: boolean }>`
+const Item = styled.dd<IDropDownStyle>`
   position: relative;
   padding: 8px 0;
 
-  &:before {
-    display: inline-block;
-    width: 3px;
-    height: 3px;
-    margin: -2px 6px 0 0;
-    content: '';
-    border-radius: 3px;
-    background-color: ${theme.GREY_MEDIUM_X2};
-    vertical-align: middle;
-  }
+  ${({ category }) =>
+    category !== '' &&
+    css`
+      &:before {
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        margin: -2px 6px 0 0;
+        content: '';
+        border-radius: 3px;
+        background-color: ${theme.GREY_MEDIUM_X2};
+        vertical-align: middle;
+      }
+    `}
 
   ${({ isNew }) =>
     isNew &&
