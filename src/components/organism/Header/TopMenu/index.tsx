@@ -1,19 +1,14 @@
 import Logo from 'components/atoms/Logo';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flex, font, theme } from 'styles';
+import { Link } from 'react-router-dom';
 
-const TOP_MENU = [
-  { id: 1, name: '상품권', path: '/' },
-  { id: 2, name: '주문/배송', path: '/' },
-  { id: 3, name: '쿠폰/머니', path: '/' },
-  { id: 4, name: '이벤트', path: '/' },
-];
+import { TOP_MENU_LIST } from 'components/organism/Header/constant';
+import { flex, font, theme } from 'styles';
 
 export default function TopMenu() {
   return (
-    <BackgroundContainer>
-      <Container>
+    <Container>
+      <Wrapper>
         <LeftWrap>
           <OpmTab>
             <Logo imgSrc="/images/ic-string-logo.svg" path="/" />
@@ -32,24 +27,24 @@ export default function TopMenu() {
           <Menu style={{ fontWeight: '700' }}>로그인</Menu>
           <Menu>회원가입</Menu>
           <Dot />
-          {TOP_MENU.map(({ id, name, path }) => (
+          {TOP_MENU_LIST.map(({ id, name, path }) => (
             <Link key={id} to={path}>
               <Menu>{name}</Menu>
             </Link>
           ))}
         </RightWrap>
-      </Container>
-    </BackgroundContainer>
+      </Wrapper>
+    </Container>
   );
 }
 
-const BackgroundContainer = styled.div`
+const Container = styled.div`
   background-color: ${theme.GREY_LIGHT};
   border-bottom: 1px solid ${theme.GREY_MEDIUM};
   width: 100vw;
 `;
 
-const Container = styled.div`
+const Wrapper = styled.div`
   ${flex('space-between', 'center')}
   width: 1140px;
   height: 35px;

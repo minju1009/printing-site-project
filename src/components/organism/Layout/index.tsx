@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import Header from 'components/organism/Header';
+import Footer from 'components/organism/Footer';
 import { flex } from 'styles';
 
 interface ILayoutProps {
@@ -13,7 +14,7 @@ export default function Layout({ children }: ILayoutProps) {
     <Container>
       <Header />
       <Body>{children}</Body>
-      {/* <Footer /> */}
+      <Footer />
     </Container>
   );
 }
