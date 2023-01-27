@@ -1,12 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import Layout from 'components/organism/Layout';
 
-function BusinessCardStore() {
-  return <Test>test</Test>;
+export default function BusinessCardStore() {
+  return (
+    <Layout>
+      <div>카드 들어갈 곳 </div>
+    </Layout>
+  );
 }
-
-export default BusinessCardStore;
-
-const Test = styled.div`
-  color: white;
-`;
