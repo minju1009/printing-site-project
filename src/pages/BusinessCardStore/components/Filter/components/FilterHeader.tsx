@@ -60,7 +60,7 @@ export default function FilterHeader({ showFilter, toggleFilter }: IToggleFilter
 
 const Container = styled.div`
   width: 100%;
-  border: 1px solid ${theme.GREY_MEDIUM};
+  border-bottom: 1px solid ${theme.GREY_MEDIUM};
 `;
 
 const Wrapper = styled.div`

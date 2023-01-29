@@ -11,4 +11,6 @@ export default function Header() {
   );
 }
 
-const Container = styled.header``;
+const Container = styled.header`
+  width: 100%;
+`;

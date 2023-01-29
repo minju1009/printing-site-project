@@ -21,9 +21,10 @@ export default function Layout({ children }: ILayoutProps) {
 
 const Container = styled.div`
   ${flex('', 'center', 'column')}
+  width: 100%;
+  margin: 0 auto;
 `;
 
 const Body = styled.main`
-  /* width: 1140px;
-  height: 960px; */
+  width: 100%;
 `;

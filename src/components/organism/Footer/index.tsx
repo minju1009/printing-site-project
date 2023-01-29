@@ -21,7 +21,7 @@ export default function Footer() {
 const Container = styled.div`
   background-color: ${theme.GREY_LIGHT};
   border-bottom: 1px solid ${theme.GREY_MEDIUM};
-  width: 100vw;
+  width: 100%;
   padding: 40px 0;
 `;
 
