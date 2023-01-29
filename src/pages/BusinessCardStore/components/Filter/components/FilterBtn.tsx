@@ -53,4 +53,8 @@ const ApplyBtn = styled.button`
   line-height: 42px;
   background-color: ${theme.BLUE_DARK};
   color: white;
+
+  &:hover {
+    background-color: ${theme.BLUE_LIGHT};
+  }
 `;

@@ -1,6 +1,6 @@
 export const COMPANY_LINK_LIST = [
   { name: '회사소개', url: 'https://www.webling.kr/' },
-  { name: '회사소개', url: '/cs/faq' },
+  { name: '고객센터', url: '/cs/faq' },
   { name: '이용약관', url: '/policy/terms' },
   { name: '개인정보처리방침', url: '/policy/privacy' },
   { name: '제휴문의', url: 'https://www.webling.kr/contact/write' },

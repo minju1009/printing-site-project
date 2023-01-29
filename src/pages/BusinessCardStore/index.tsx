@@ -1,12 +1,12 @@
 import Layout from 'components/organism/Layout';
-import Cards from './components/Cards';
+import CardTemplates from './components/CardTemplates';
 import Filter from './components/Filter';
 
 export default function BusinessCardStore() {
   return (
     <Layout>
       <Filter />
-      <Cards />
+      <CardTemplates />
     </Layout>
   );
 }
