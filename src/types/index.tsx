@@ -19,3 +19,21 @@ export interface IFilterList {
   colorCodes: IFilterInfo[];
   [key: string]: IFilterInfo[];
 }
+
+export interface ITemplateInfo {
+  templateCode: string;
+  templateName: string;
+  templateDescription: string;
+  templateProduct: string;
+  templateOption: string;
+  price: number;
+  designList: IDesignList[];
+  [key: string]: string | number | IDesignList[];
+}
+
+export interface IDesignList {
+  itemType: string;
+  templateCode: string;
+  imgURL: string;
+  designCode: string;
+}
