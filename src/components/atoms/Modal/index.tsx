@@ -1,4 +1,4 @@
-import { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect, ReactNode, MouseEvent } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
@@ -9,6 +9,11 @@ interface IModalProps {
 
 export default function Modal({ children, closeModal }: IModalProps) {
   const portalElRef = useRef<HTMLDivElement>(document.createElement('div'));
+
+  const handleClickCloseBtn = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    closeModal();
+  };
 
   useEffect(() => {
     const { body } = document;
@@ -33,7 +38,12 @@ export default function Modal({ children, closeModal }: IModalProps) {
   return ReactDOM.createPortal(
     <>
       <ModalOverlay />
-      <ModalBox onClick={closeModal}>{children}</ModalBox>
+      <ModalBox>
+        <CloseBtn onClick={(e) => handleClickCloseBtn(e)}>
+          <img alt="close icon" src="/images/ic-close.svg" />
+        </CloseBtn>
+        {children}
+      </ModalBox>
     </>,
     portalElRef.current,
   );
@@ -49,9 +59,15 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalBox = styled.div`
+  margin: 0 auto;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+`;
+
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `;
