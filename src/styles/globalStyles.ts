@@ -33,13 +33,6 @@ const GlobalStyle = createGlobalStyle`
         display: none;
     }
 
-    body {
-        line-height: 1;
-        background-image: url('/icons/icon-background.png');
-        background-size: cover;
-        overflow-x: hidden;
-    }
-
     menu, ol, ul {
         list-style: none;
     }
@@ -62,10 +55,11 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+
+
     body {
-        width: 100vw;
-        height: 100vh;
-        background-color: #fff;
+        width: 100%;
+        overflow-x: hidden;
         padding: 0;
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif;
