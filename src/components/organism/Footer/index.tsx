@@ -18,7 +18,7 @@ export default function Footer() {
   );
 }
 
-const Container = styled.div`
+const Container = styled.footer`
   background-color: ${theme.GREY_LIGHT};
   border-bottom: 1px solid ${theme.GREY_MEDIUM};
   width: 100%;
