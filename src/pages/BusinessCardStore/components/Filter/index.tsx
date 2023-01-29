@@ -1,38 +1,66 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import FilterHeader from './FilterHeader';
-import FilterBody from './FilterBody';
+import FilterHeader from './components/FilterHeader';
+import FilterBody from './components/FilterBody';
+import FilterBtn from './components/FilterBtn';
+import FilterFooter from './components/FilterFooter';
 
-import { theme } from 'styles';
+import { IFilterList } from 'types';
+import { useResetRecoilState, useSetRecoilState } from 'recoil';
+import { filterListState } from 'recoil/businessCardStore';
+
+const initialFilterValue: IFilterList = {
+  jobCodes: [],
+  themeCodes: [],
+  usageCodes: [],
+  colorCodes: [],
+};
 
 export default function Filter() {
-  const [showFilter, setShowFilter] = useState(false);
-  const [filterList, setFilterList] = useState({
-    occupationList: ['농림'],
-    styleList: ['테마스타일'],
-    usageList: ['사용법', '사용하는방법'],
-  });
+  const [showFilter, setShowFilter] = useState(true);
+  const [tempFilterList, setTempFilterList] = useState(initialFilterValue);
+  const setFilterListState = useSetRecoilState(filterListState);
+  const resetFilterListState = useResetRecoilState(filterListState);
 
-  const addToFilterList = (category: string, newItem: string) => {
-    setFilterList((prev) => ({ ...prev, [category]: newItem }));
+  const toggleTempFilterList = (keyName: keyof IFilterList, label: string, value: string) => {
+    setTempFilterList((prev) => {
+      const currentList = prev[keyName] || [];
+      const newList = currentList.filter((item) => item.value !== value);
+      if (newList.length === currentList.length) {
+        newList.push({ label, value });
+      }
+      return { ...prev, [keyName]: newList };
+    });
   };
 
-  console.log(addToFilterList, filterList);
+  const addFilterList = () => {
+    setFilterListState(tempFilterList);
+  };
 
   const toggleFilter = () => {
     setShowFilter((prev) => !prev);
   };
 
+  const resetFilter = () => {
+    setTempFilterList(initialFilterValue);
+    resetFilterListState();
+  };
+
   return (
     <Container>
-      <FilterHeader filterList={filterList} showFilter={showFilter} toggleFilter={toggleFilter} />
-      {showFilter && <FilterBody />}
+      <FilterHeader showFilter={showFilter} toggleFilter={toggleFilter} />
+      {showFilter && (
+        <>
+          <FilterBody tempFilterList={tempFilterList} toggleTempFilterList={toggleTempFilterList} />
+          <FilterBtn addFilterList={addFilterList} resetFilter={resetFilter} />
+        </>
+      )}
+      <FilterFooter />
     </Container>
   );
 }
 
 const Container = styled.div`
   width: 100vw;
-  border: 1px solid ${theme.GREY_MEDIUM};
 `;
