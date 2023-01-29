@@ -1,25 +1,27 @@
+import { useCallback } from 'react';
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { filterListState } from 'recoil/businessCardStore';
 
 import FilterLabel from 'components/atoms/Label/FilterLabel';
+import ColorLabel from 'components/atoms/Label/ColorLabel';
+
+import { IFilterInfo } from 'types';
 import { flex, fontSize, theme } from 'styles';
-import { IFilterList } from 'types';
-import { useCallback } from 'react';
 
 interface IToggleFilterProps {
   showFilter: boolean;
   toggleFilter: () => void;
-  filterList: IFilterList;
 }
 
-export default function FilterHeader({ showFilter, toggleFilter, filterList }: IToggleFilterProps) {
-  const { occupationList, styleList, usageList } = filterList;
+export default function FilterHeader({ showFilter, toggleFilter }: IToggleFilterProps) {
+  const filterList = useRecoilValue(filterListState);
+  const { jobCodes, themeCodes, usageCodes, colorCodes } = filterList;
 
-  const formatLabel = useCallback((list: string[]) => {
-    if (list.length === 1) {
-      return list[0];
-    }
-    return `${list[0]} 외 ${list.length}종`;
-  }, []);
+  const formatLabel = useCallback(
+    (list: IFilterInfo[]) => (list.length === 1 ? list[0].label : `${list[0].label} 외 ${list.length}종`),
+    [],
+  );
 
   return (
     <Container>
@@ -29,9 +31,13 @@ export default function FilterHeader({ showFilter, toggleFilter, filterList }: I
           <LabelWrap>
             <FilterLabel>소프트</FilterLabel>
             <FilterLabel>직각모서리</FilterLabel>
-            {occupationList.length > 0 && <FilterLabel>{formatLabel(occupationList)}</FilterLabel>}
-            {styleList.length > 0 && <FilterLabel>{formatLabel(styleList)}</FilterLabel>}
-            {usageList.length > 0 && <FilterLabel>{formatLabel(usageList)}</FilterLabel>}
+            {jobCodes.length > 0 && <FilterLabel>{formatLabel(jobCodes)}</FilterLabel>}
+            {themeCodes.length > 0 && <FilterLabel>{formatLabel(themeCodes)}</FilterLabel>}
+            {usageCodes.length > 0 && <FilterLabel>{formatLabel(usageCodes)}</FilterLabel>}
+            <ColorLabelWrap>
+              {colorCodes.length > 0 &&
+                colorCodes.map(({ label, value }) => <ColorLabel key={value}>{label}</ColorLabel>)}
+            </ColorLabelWrap>
           </LabelWrap>
         </FilterWrap>
         <FilterSwitch onClick={toggleFilter}>
@@ -54,7 +60,6 @@ export default function FilterHeader({ showFilter, toggleFilter, filterList }: I
 
 const Container = styled.div`
   width: 100%;
-
   border: 1px solid ${theme.GREY_MEDIUM};
 `;
 
@@ -76,7 +81,16 @@ const Title = styled.h1`
 const LabelWrap = styled.div`
   margin-left: 15px;
   ${flex('', 'center')}
+  gap: 5px;
+`;
+
+const ColorLabelWrap = styled.ul`
+  ${flex('flex-start', 'center')}
   gap: 10px;
+
+  div {
+    width: 20px;
+  }
 `;
 
 const FilterSwitch = styled.button`
