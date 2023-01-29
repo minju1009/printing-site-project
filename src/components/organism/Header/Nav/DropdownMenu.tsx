@@ -60,7 +60,7 @@ const DropdownContainer = styled.div`
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid ${theme.GREY_MEDIUM_X2};
+  border: 1px solid ${theme.GREY_MEDIUM_X3};
   border-bottom: 3px solid ${theme.BLUE_DARK};
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
@@ -76,8 +76,8 @@ const DropdownContainer = styled.div`
     top: -7px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
-    border-left: 1px solid ${theme.GREY_MEDIUM_X2};
-    border-top: 1px solid ${theme.GREY_MEDIUM_X2};
+    border-left: 1px solid ${theme.GREY_MEDIUM_X3};
+    border-top: 1px solid ${theme.GREY_MEDIUM_X3};
     background-color: white;
   }
 `;

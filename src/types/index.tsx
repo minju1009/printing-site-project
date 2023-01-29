@@ -6,8 +6,16 @@ export interface INavMenuGroup {
   isNew: boolean;
   category: string;
 }
+
+export interface IFilterInfo {
+  label: string;
+  value: string;
+}
+
 export interface IFilterList {
-  occupationList: string[];
-  styleList: string[];
-  usageList: string[];
+  jobCodes: IFilterInfo[];
+  themeCodes: IFilterInfo[];
+  usageCodes: IFilterInfo[];
+  colorCodes: IFilterInfo[];
+  [key: string]: IFilterInfo[];
 }
