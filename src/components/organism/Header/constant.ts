@@ -90,16 +90,13 @@ export const NAV_MENU_GROUP = [
   { menuId: 5, name: '테이블탑 사인', value: '308', attr: 'TABLE_TOP_SIGN', isNew: false, category: '' },
   { menuId: 5, name: '카 마그넷', value: '309', attr: 'CAR_MAGNET', isNew: false, category: '' },
   { menuId: 5, name: 'A 프레임 사인', value: '310', attr: 'A_FRAME_SIGN', isNew: false, category: '' },
-
+  { menuId: 7, name: '봉투', value: '601', attr: 'ENVELOPE', isNew: false, category: '' },
+  { menuId: 7, name: '쇼핑백', value: '602', attr: 'SHOPPINGBAG', isNew: false, category: '' },
   { menuId: 8, name: '스마트톡', value: '501', attr: 'SMART_TOK', isNew: false, category: '데코' },
   { menuId: 8, name: '핀버튼', value: '502', attr: 'PIN_BUTTON', isNew: false, category: '데코' },
   { menuId: 8, name: '거울버튼', value: '503', attr: 'MIRROR_BUTTON', isNew: false, category: '데코' },
   { menuId: 8, name: '자석버튼', value: '504', attr: 'MAGNET_BUTTON', isNew: false, category: '데코' },
   { menuId: 8, name: '아크릴키링', value: '505', attr: 'ACRYLIC_KEYRING', isNew: false, category: '데코' },
-
-  { menuId: 10, name: '캘린더', value: '401', attr: 'CALENDAR_DESK', isNew: false, category: '' },
-  { menuId: 7, name: '봉투', value: '601', attr: 'ENVELOPE', isNew: false, category: '' },
-  { menuId: 7, name: '쇼핑백', value: '602', attr: 'SHOPPINGBAG', isNew: false, category: '' },
   { menuId: 8, name: '스탠다드 볼펜', value: '508', attr: 'STANDARD_PEN', isNew: false, category: '문구' },
   { menuId: 8, name: '베이직 볼펜', value: '509', attr: 'BASIC_PEN', isNew: false, category: '문구' },
   { menuId: 8, name: '투명PVC커버 다이어리', value: '510', attr: 'PVC_DIARY', isNew: false, category: '문구' },
@@ -112,6 +109,6 @@ export const NAV_MENU_GROUP = [
   { menuId: 8, name: '에코 텀블러', value: '517', attr: 'ECO_TUMBLER', isNew: false, category: '컵/텀블러' },
   { menuId: 8, name: '라이트 볼펜', value: '518', attr: 'LIGHT_PEN', isNew: true, category: '문구' },
   { menuId: 8, name: '친환경 볼펜', value: '519', attr: 'ECO_PEN', isNew: true, category: '문구' },
-
+  { menuId: 10, name: '캘린더', value: '401', attr: 'CALENDAR_DESK', isNew: false, category: '' },
   { menuId: 11, name: '액세서리', value: '901', attr: 'ACCESSORY', isNew: false, category: '사이즈' },
 ];
